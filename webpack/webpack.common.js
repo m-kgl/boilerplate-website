@@ -1,67 +1,57 @@
 const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+    context: path.resolve(__dirname, '../src'),
     entry: {
-        app: './src/index.ts',
+        app: path.resolve(__dirname, '../src/ts/app.ts'),
+    },
+    resolve: {
+        extensions: ['.ts', '.js'],
+    },
+    output: {
+        filename: 'js/[name].bundle.js',
+        sourceMapFilename: "js/[name].bundle.js.map",
+        path: path.resolve(__dirname, '../dist'),
+        publicPath: ''
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'css/styles.bundle.css'
+        }),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [
+                'js/*',
+                'css/*'
+            ]
+        }),
         new CopyPlugin({
             patterns: [
                 {
-                    from: "src/assets",
-                    to: "assets",
-                    globOptions: {
-                        /*
-                           TODO:
-                             stops the favicon from also moving to the assets folder
-                             remove comment when having data in assets
-                             if out-commented it prevents from throwing an error due to no files in assets
-                        */
-                        // ignore: ["**/assets/favicon.ico"],
-                    },
+                    from: path.resolve(__dirname, "../src/assets"),
+                    to: "assets"
                 },
             ],
-        }),
-        new HtmlWebpackPlugin({
-            favicon: './src/assets/favicon.ico',
-            title: 'Index template',
-            template: './src/index.html'
-        }),
+        })
     ],
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
-                exclude: /node_modules/,
+                exclude: /node_modules/
             },
             {
-                test: /\.s[ac]ss$/i,
+                test: /\.scss$/i,
                 use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].css',
-                            outputPath: 'css/'
-                        }
-                    },
-                    "extract-loader",
+                    MiniCssExtractPlugin.loader,
                     "css-loader",
                     "postcss-loader",
                     "sass-loader"
-                ],
-            },
-        ],
-    },
-    resolve: {
-        extensions: ['.ts', '.js'],
-    },
-    output: {
-        filename: 'js/[name].js',
-        path: path.resolve(__dirname, '../dist'),
-    },
+                ]
+            }
+        ]
+    }
 };
