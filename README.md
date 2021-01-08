@@ -3,12 +3,13 @@
 This boilerplate for creating websites with the bundler webpack uses typescript and   
 SCSS for developing.  
 
+
 **Usage**  
 
 `npm run start`: starts a developing server on port 8080. it runs the bundled css/js files from memory.  
 `npm run build`: build the project.  
-
-
+  
+  
 **Info**  
 
 `styles.scss`: this file serves as the main styling point, in which all other styling files should be included.  
@@ -17,8 +18,13 @@ SCSS for developing.
 It is possible to include other entry points, but to use those two was the intention of this repository.  
   
 `index.html`: this file is located in the dist folder as the main html file and includes a favicon and the two bundled scripts.  
+  
+  
+**Used Dependencies**    
 
-
+`normalize.css`: to normalize all css ( https://www.npmjs.com/package/normalize.css?activeTab=readme )
+  
+  
 **Used DevDependencies**    
 
 `autoprefixer`: to use vendor prefixes for css ( https://www.npmjs.com/package/autoprefixer )  
