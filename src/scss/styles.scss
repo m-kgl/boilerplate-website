@@ -3,7 +3,9 @@
 // SETTINGS
 @import "settings/settings.global";
 @import "settings/settings.breakpoints";
+
 // TOOLS
+@import "tools/tools.breakpoint";
 
 // GENERIC
 @import 'generic/generic.normalize';
