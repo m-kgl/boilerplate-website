@@ -1,0 +1,18 @@
+/*
+  with help from:
+  https://davidhellmann.com/blog/development/sass-breakpoint-mixin
+  https://getbootstrap.com/docs/5.0/layout/breakpoints/
+ */
+// Sass Map for all breakpoints
+$breakpoints: (
+        default: '',
+        xs: 0px,
+        s: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+);
+
+// can be min or max
+$media-direction: min;
