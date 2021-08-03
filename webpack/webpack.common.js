@@ -1,5 +1,5 @@
 const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -9,7 +9,7 @@ module.exports = {
         app: path.resolve(__dirname, '../src/ts/app.ts'),
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: [ '.ts', '.js' ],
     },
     output: {
         filename: 'js/[name].bundle.js',
