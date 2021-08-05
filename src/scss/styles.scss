@@ -3,9 +3,11 @@
 // SETTINGS
 @import "settings/settings.global";
 @import "settings/settings.breakpoints";
+@import "settings/settings.grid";
 
 // TOOLS
 @import "tools/tools.breakpoint";
+@import "tools/tools.col";
 
 // GENERIC
 @import 'generic/generic.normalize';
@@ -14,6 +16,9 @@
 // ELEMENTS
 
 // OBJECTS
+@import 'objects/objects.container';
+@import 'objects/objects.col';
+@import 'objects/objects.row';
 
 // COMPONENTS
 

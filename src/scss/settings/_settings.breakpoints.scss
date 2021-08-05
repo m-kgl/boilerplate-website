@@ -3,15 +3,22 @@
   https://davidhellmann.com/blog/development/sass-breakpoint-mixin
   https://getbootstrap.com/docs/5.0/layout/breakpoints/
  */
+
+$breakpoint-s: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
 // Sass Map for all breakpoints
 $breakpoints: (
         'default': '',
         'xs': 0px,
-        's': 576px,
-        'md': 768px,
-        'lg': 992px,
-        'xl': 1200px,
-        'xxl': 1400px
+        's': $breakpoint-s,
+        'md': $breakpoint-md,
+        'lg': $breakpoint-lg,
+        'xl': $breakpoint-xl,
+        'xxl': $breakpoint-xxl
 );
 
 // can be min or max
