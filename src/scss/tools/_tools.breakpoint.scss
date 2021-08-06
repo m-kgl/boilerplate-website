@@ -1,0 +1,22 @@
+/*
+  with help from: https://davidhellmann.com/blog/development/sass-breakpoint-mixin
+ */
+
+@mixin breakpoint($breakpoint, $direction: $media-direction) {
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    @media(#{$direction}-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+
+  }
+
+    // if breakpoint has no unit, unit is added
+  @else if unitless($breakpoint) {
+    $breakpoint: $breakpoint + 0px;
+
+    @media(#{$direction}-width: $breakpoint) {
+      @content;
+    }
+  }
+}

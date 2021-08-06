@@ -1,0 +1,14 @@
+@mixin create-col-classes($modifier, $grid__cols, $breakpoint) {
+  @include breakpoint($breakpoint) {
+
+    @for $i from 1 through $grid__cols {
+      .o-col--#{$modifier}-#{$i} {
+        flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+      }
+
+      .o-col--offset-#{$modifier}-#{$i} {
+        margin-left: (100 / ($grid__cols / $i) ) * 1%;
+      }
+    }
+  }
+}
