@@ -5,7 +5,7 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
     mode: 'production',
     plugins: [
-        new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin()
     ],
     optimization: {
         nodeEnv: 'production'
