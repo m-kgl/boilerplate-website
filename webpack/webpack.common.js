@@ -15,7 +15,8 @@ module.exports = {
         filename: 'js/[name].bundle.js',
         sourceMapFilename: "js/[name].bundle.js.map",
         path: path.resolve(__dirname, '../dist'),
-        publicPath: ''
+        publicPath: '',
+        libraryTarget: "umd"
     },
     plugins: [
         new MiniCssExtractPlugin({
